@@ -12,17 +12,27 @@ import discord
 from media_server import env_dir
 from media_server.MediaClient import MediaClient
 
-print(f'Loading token from {env_dir}')
-MEDIA_SERVER_TOKEN = os.getenv('MEDIA_SERVER_PUBLIC_KEY')
+
 
 def main(main_args):
-    intents = discord.Intents.default()
-    intents.message_content = True
+    """
+    If you want to generate this URL dynamically at run-time inside your bot and using the
+    discord.Permissions interface, you can use [discord.utils.oauth_url().
 
+    https://discordpy.readthedocs.io/en/stable/api.html#discord.Permissions
+    https://discordpy.readthedocs.io/en/stable/api.html#discord.utils.oauth_url
+    https://discord.com/developers/docs/topics/oauth2#bots
+
+    :param main_args:
+    :return:
+    """
+    print(f'Loading token from {env_dir}')
+    media_server_token = os.getenv('MEDIA_SERVER_TOKEN')
+
+    intents = discord.Intents.all()
     client = MediaClient(intents=intents)
-    client.run(MEDIA_SERVER_TOKEN)
 
-    _ = input('Press any key to exit...')
+    client.run(media_server_token)
     return
 
 
