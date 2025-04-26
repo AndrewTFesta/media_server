@@ -30,7 +30,6 @@ packages = ["media_server"]
 dependencies = {file = ["requirements.txt"]}
 
 [project.urls]
-Homepage = ""
-Documentation = ""
-Repository = ""
-
+Homepage = "https://andrewtfesta.com"
+Documentation = "https://andrewtfesta.com"
+Repository = "https://andrewtfesta.com"
